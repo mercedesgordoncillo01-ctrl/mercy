@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velvet Brew Café</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#F8F3EC;
+    --card:#FFFDF9;
+    --brown:#5C4033;
+    --light-brown:#A67B5B;
+    --peach:#E8C8B0;
+    --white:#FFFFFF;
+    --shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--brown);
+}
+
+section{
+    padding:80px 10%;
+}
+
+h1,h2,h3{
+    font-family:'Cormorant Garamond',serif;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* NAVIGATION */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(248,243,236,.95);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 10%;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
+    z-index:999;
+}
+
+.logo{
+    font-size:35px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--brown);
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--light-brown);
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(248,243,236,.55),rgba(248,243,236,.55)),
+    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:72px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:35px;
+}
+
+.button{
+    display:inline-block;
+    padding:15px 35px;
+    background:var(--light-brown);
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    transition:.3s;
+}
+
+.button:hover{
+    background:var(--brown);
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about img{
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+/* MENU */
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.menu-card{
+    background:var(--card);
+    padding:25px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.menu-card:hover{
+    transform:translateY(-6px);
+}
+
+.price{
+    color:var(--light-brown);
+    font-weight:bold;
+}
+
+/* BEST SELLERS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.card img{
+    height:230px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    border-radius:15px;
+    height:250px;
+    object-fit:cover;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.feature{
+    background:white;
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+    display:grid;
+    gap:20px;
+}
+
+.testimonial{
+    background:white;
+    padding:25px;
+    border-left:5px solid var(--light-brown);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+}
+
+/* ORDER */
+
+form{
+    display:grid;
+    gap:18px;
+}
+
+input,select,textarea{
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background:white;
+}
+
+button{
+    padding:16px;
+    border:none;
+    border-radius:40px;
+    background:var(--light-brown);
+    color:white;
+    cursor:pointer;
+}
+
+/* CONTACT */
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+iframe{
+    width:100%;
+    height:350px;
+    border:none;
+    border-radius:15px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#EFE4D4;
+    padding:40px;
+    text-align:center;
+}
+
+footer p{
+    margin:8px;
+}
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero h1{
+    font-size:48px;
+}
+
+.about,
+.contact{
+    grid-template-columns:1fr;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">SELAH BREW</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#order">Order</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div>
+
+<h1>Fresh Coffee.<br>Warm Moments.</h1>
+
+<p>Handcrafted coffee, homemade pastries, and a cozy place to unwind.</p>
+
+<a href="#menu" class="button">Explore Menu</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="about">
+
+<div>
+
+<h2>Our Story</h2>
+
+<br>
+
+<p>
+At Selah Brew Café, every cup is crafted with care using quality beans and fresh ingredients.
+Our café is designed to be a warm and inviting space where friends gather, students study,
+and families create lasting memories.
+</p>
+
+</div>
+
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80">
+
+</div>
+
+</section>
+
+<!-- MENU -->
+
+<section id="menu">
+
+<h2>Featured Menu</h2>
+
+<div class="menu-grid">
+
+<div class="menu-card">
+<h3>Spanish Latte</h3>
+<p>Rich espresso with creamy milk.</p>
+<br>
+<p class="price">₱180</p>
+</div>
+
+<div class="menu-card">
+<h3>Cappuccino</h3>
+<p>Smooth espresso with milk foam.</p>
+<br>
+<p class="price">₱170</p>
+</div>
+
+<div class="menu-card">
+<h3>Classic Croissant</h3>
+<p>Freshly baked every morning.</p>
+<br>
+<p class="price">₱95</p>
+</div>
+
+<div class="menu-card">
+<h3>Blueberry Cheesecake</h3>
+<p>Creamy homemade dessert.</p>
+<br>
+<p class="price">₱190</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- BEST SELLERS -->
+
+<section>
+
+<h2>Customer Favorites</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Sea Salt Latte</h3>
+<p>Our signature drink loved by customers.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Burnt Cheesecake</h3>
+<p>Soft, creamy, and perfectly caramelized.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<h3>Iced Mocha</h3>
+<p>Chocolate meets espresso.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80">
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section>
+
+<h2>Why Visit Us</h2>
+
+<div class="features">
+
+<div class="feature">
+<h3>Fresh Coffee</h3>
+<p>Made with premium coffee beans every day.</p>
+</div>
+
+<div class="feature">
+<h3>Homemade Pastries</h3>
+<p>Baked fresh every morning.</p>
+</div>
+
+<div class="feature">
+<h3>Cozy Space</h3>
+<p>Perfect for studying, meetings, or relaxing.</p>
+</div>
+
+<div class="feature">
+<h3>Free Wi-Fi</h3>
+<p>Comfortable seating with fast internet.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section>
+
+<h2>What Our Guests Say</h2>
+
+<div class="testimonials">
+
+<div class="testimonial">
+"The atmosphere is peaceful, and their Spanish Latte is one of the best I've had."
+</div>
+
+<div class="testimonial">
+"A beautiful café with friendly staff and delicious pastries."
+</div>
+
+</div>
+
+</section>
+
+<!-- ORDER -->
+
+<section id="order">
+
+<h2>Order Online</h2>
+
+<form>
+
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Email Address">
+
+<input type="tel" placeholder="Contact Number">
+
+<select>
+<option>Select Menu Item</option>
+<option>Spanish Latte</option>
+<option>Cappuccino</option>
+<option>Americano</option>
+<option>Cheesecake</option>
+</select>
+
+<input type="number" placeholder="Quantity">
+
+<select>
+<option>Pickup</option>
+<option>Delivery</option>
+</select>
+
+<textarea rows="5" placeholder="Delivery Address / Special Instructions"></textarea>
+
+<button>Submit Order</button>
+
+</form>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>Visit Us</h2>
+
+<div class="contact">
+
+<div>
+
+<p><strong>Email</strong><br>mercedesgordoncillo01@gmail.com</p><br>
+
+<p><strong>Phone</strong><br>+63 910 039 3510</p><br>
+
+<p><strong>Address</strong><br>209 Don Fabian Barangay Commonwealth Quezon City</p><br>
+
+<p><strong>Opening Hours</strong><br>
+Monday – Sunday: 9:00 AM – 9:00 PM<br>
+</p>
+
+</div>
+
+<iframe src="https://maps.google.com/maps?q=Quezon%20City&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>Selah Brew Café</h3>
+
+<p>Fresh Coffee • Homemade Pastries • Cozy Space</p>
+
+<p>Instagram • Facebook • TikTok</p>
+
+<p>© 2026 Selah Brew Café. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
